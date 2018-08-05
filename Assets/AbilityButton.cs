@@ -6,7 +6,7 @@ public class AbilityButton : MonoBehaviour {
 	const float defaultAlpha = .2f;
 	const float hoverAlpha = .3f;
 
-	public int abilityNumber = -1;
+	public Ability ability;
 
 	SpriteRenderer sr;
 
@@ -20,7 +20,7 @@ public class AbilityButton : MonoBehaviour {
 	}
 
 	void DoClick(){
-		Game.Instance().DoCastAbility(abilityNumber);
+		Game.Instance().DoCastAbility(ability);
 	}
 
 	void DoStartHover(){

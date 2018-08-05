@@ -10,7 +10,6 @@ public class Unit : MonoBehaviour {
 		public string name;
 		public string resourceName; // e.g. Mana, Energy, ...
 
-
 	}
 
 	[System.Serializable]

@@ -72,6 +72,7 @@ public class UnitDetails : MonoBehaviour {
 
 		for(int i = 0; i < unitAbilities.Length; i++){
 			abilityButtons[i].gameObject.SetActive(true);
+			abilityButtons[i].ability = unitAbilities[i];
 		}
 	}
 
