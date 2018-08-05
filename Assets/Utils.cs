@@ -34,4 +34,15 @@ public class Utils {
 		DebugText(s + ": " + b.ToString());
 	}
 
+
+	public static void SnapToPosition(Transform t, int x, int y){
+		Vector3 pos = t.position;
+		pos.x = x;
+		pos.y = y;
+		t.position = pos;
+	}
+
+	public static bool InArray<T>(T[,] a, int i, int j){
+		return i >= 0 && i < a.GetLength(0) && j >= 0 && j < a.GetLength(1);
+	}
 }

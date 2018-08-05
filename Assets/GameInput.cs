@@ -24,7 +24,7 @@ public class GameInput {
 	}
 
 	public void UpdateInput () {
-		Camera.main.transform.position += new Vector3(.5f * Time.deltaTime, 0, 0);
+//		Camera.main.transform.position += new Vector3(.5f * Time.deltaTime, 0, 0);
 
 		// Update mouse position
 		//
