@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cef5728d8334e18810bfb5d68bfb3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityNumber: 1
+  ability: {fileID: 0}
 --- !u!1 &225182775
 GameObject:
   m_ObjectHideFlags: 0
@@ -993,7 +993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cef5728d8334e18810bfb5d68bfb3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityNumber: 4
+  ability: {fileID: 0}
 --- !u!1 &862368354
 GameObject:
   m_ObjectHideFlags: 0
@@ -1371,7 +1371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cef5728d8334e18810bfb5d68bfb3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityNumber: 2
+  ability: {fileID: 0}
 --- !u!1 &1245290897
 GameObject:
   m_ObjectHideFlags: 0
@@ -1463,7 +1463,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cef5728d8334e18810bfb5d68bfb3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityNumber: 0
+  ability: {fileID: 0}
 --- !u!1 &1523906122
 GameObject:
   m_ObjectHideFlags: 0
@@ -1947,7 +1947,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1cef5728d8334e18810bfb5d68bfb3e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  abilityNumber: 3
+  ability: {fileID: 0}
 --- !u!1 &2104024129
 GameObject:
   m_ObjectHideFlags: 0
