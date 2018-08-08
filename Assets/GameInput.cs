@@ -93,7 +93,7 @@ public class GameInput {
 			mouseTarget.SendMessage("DoClick", null, SendMessageOptions.DontRequireReceiver);
 		}
 		if (clickingNothing){
-			game.ClickedOnNothing();
+			game.gameState.DoClickOnNothing();
 		}
 
 		// Drag camera

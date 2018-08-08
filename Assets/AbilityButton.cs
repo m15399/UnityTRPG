@@ -20,7 +20,7 @@ public class AbilityButton : MonoBehaviour {
 	}
 
 	void DoClick(){
-		Game.Instance().DoCastAbility(ability);
+		Game.Instance().gameState.DoCastAbility(ability);
 	}
 
 	void DoStartHover(){

@@ -7,7 +7,7 @@ public class UnitDetails : MonoBehaviour {
 
 	public static UnitDetails Instance(){
 		// TODO
-		return GameObject.Find("UnitDetails").GetComponent<UnitDetails>();
+		return GameObject.Find("MainCamera/UnitDetails").GetComponent<UnitDetails>();
 	}
 
 	const int maxAbilities = 5;

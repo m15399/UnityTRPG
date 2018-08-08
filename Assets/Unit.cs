@@ -29,6 +29,7 @@ public class Unit : MonoBehaviour {
 		}
 	}
 
+	public Coord pos;
 	public UnitDescription unitDescription;
 	public UnitStats defaultStats;
 	public UnitStats currentStats;
@@ -42,11 +43,15 @@ public class Unit : MonoBehaviour {
 	}
 	
 	void Update () {
-		
-
+		// TODO hmmm
+		Utils.SnapToPosition(transform, pos);
 	}
 
 	void DoClick(){
-		Game.Instance().DoClickOnUnit(this);
+		Game.Instance().gameState.DoClickOnUnit(this);
+	}
+
+	public void DoMoveTo(Coord coord){
+		pos = coord.Clone();
 	}
 }

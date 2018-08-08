@@ -13,6 +13,19 @@ public class Utils {
 		return debugText;
 	}
 
+
+	public static void Assert(bool condition, string s){
+		if (!condition){
+			throw new System.Exception("Assert failed: " + s);
+		}
+	}
+
+	public static void Assert(bool condition){
+		if (!condition){
+			throw new System.Exception("Assert failed");
+		}
+	}
+
 	public static void DebugText(string s){
 		Text debugText = GetDebugText();
 		if (lastDebugTextFrame != Time.frameCount){
@@ -21,8 +34,8 @@ public class Utils {
 		}
 		debugText.text += s + "\n";
 	}
-
-	public static void DebugText(string s, GameObject o){
+		
+	public static void DebugText(string s, object o){
 		if (o != null){
 			DebugText(s + ": " + o.ToString());
 		} else {
@@ -35,10 +48,10 @@ public class Utils {
 	}
 
 
-	public static void SnapToPosition(Transform t, int x, int y){
+	public static void SnapToPosition(Transform t, Coord coord){
 		Vector3 pos = t.position;
-		pos.x = x;
-		pos.y = y;
+		pos.x = coord.x;
+		pos.y = coord.y;
 		t.position = pos;
 	}
 

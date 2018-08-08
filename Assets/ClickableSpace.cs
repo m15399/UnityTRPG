@@ -10,8 +10,7 @@ public class ClickableSpace : MonoBehaviour {
 
 		ClickableSpace s = Factory.Create<ClickableSpace>("ClickableSpace");
 		s.transform.parent = parent;
-		s.x = x;
-		s.y = y;
+		s.pos = new Coord(x, y);
 		s.type = type;
 		return s;
 	}
@@ -23,14 +22,14 @@ public class ClickableSpace : MonoBehaviour {
 		Ability
 	}
 
-	public int x, y;
+	public Coord pos;
 	public Type type;
 	SpriteRenderer sr;
 
 	void Start () {
 		sr = transform.GetComponentInChildren<SpriteRenderer>();
 
-		Utils.SnapToPosition(transform, x, y);
+		Utils.SnapToPosition(transform, pos);
 
 		float a = .3f;
 
@@ -57,13 +56,13 @@ public class ClickableSpace : MonoBehaviour {
 	void DoClick() {
 		switch(type){
 		case Type.Move:
-			Game.Instance().DoClickMoveSpace(this);
+			Game.Instance().gameState.DoClickMoveSpace(this);
 			break;
 		case Type.Attack:
-			Game.Instance().DoClickAttackSpace(this);
+			Game.Instance().gameState.DoClickAttackSpace(this);
 			break;
 		case Type.Ability:
-			Game.Instance().DoClickAbilitySpace(this);
+			Game.Instance().gameState.DoClickAbilitySpace(this);
 			break;
 		default:
 			throw new UnityException("ClickableSpace click not handled for type: " + type.ToString());
