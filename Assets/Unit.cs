@@ -54,4 +54,8 @@ public class Unit : MonoBehaviour {
 	public void DoMoveTo(Coord coord){
 		pos = coord.Clone();
 	}
+
+	public void TakeDamage(int amount){
+		currentStats.health -= amount;
+	}
 }

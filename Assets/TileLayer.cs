@@ -33,6 +33,13 @@ public class TileLayer {
 
 	public ClickableSpace[] LayTiles(int x, int y, int r, ClickableSpace.Type type){
 
+
+
+		// TODO need some kind of Board - don't lay move tiles on other units
+		// TODO can also take care of TODO speed stuff for UTils.Find* and FindTIle
+
+
+
 		ClearTiles();
 
 		List<ClickableSpace> createdSpaces = new List<ClickableSpace>();
@@ -78,6 +85,17 @@ public class TileLayer {
 		ClickableSpace[] createdSpacesArray = createdSpaces.ToArray();
 		currentTiles = createdSpacesArray;
 		return createdSpacesArray;
+	}
+
+	public ClickableSpace FindTile(Coord coord){
+		if (currentTiles != null){
+			foreach(ClickableSpace tile in currentTiles){
+				if (tile.pos.IsSame(coord)){
+					return tile;
+				}
+			}
+		}
+		return null;
 	}
 
 }

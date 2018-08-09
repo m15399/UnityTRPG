@@ -16,7 +16,7 @@ public class Game : MonoBehaviour {
 	Unit selectedUnit = null;
 
 	public static Game Instance(){
-		// TODO 
+		// TODO singletons everywhere
 		return GameObject.Find("Game").GetComponent<Game>();
 	}
 
@@ -85,7 +85,7 @@ public class Game : MonoBehaviour {
 
 	public void DoClickCastButton(Ability ability){
 
-		ability.DoClickCastButton();
+		bool casted = ability.DoClickCastButton();
 
 		if (ability.GetInfo().isTargetted){
 			TransitionGameState(new GameStateCast(ability));

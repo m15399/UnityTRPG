@@ -58,4 +58,27 @@ public class Utils {
 	public static bool InArray<T>(T[,] a, int i, int j){
 		return i >= 0 && i < a.GetLength(0) && j >= 0 && j < a.GetLength(1);
 	}
+
+	public static Unit FindUnit(Coord coord){
+		// TODO speed
+		Unit[] units = GameObject.FindObjectsOfType<Unit>();
+		foreach (Unit unit in units){
+			if (unit.pos.IsSame(coord)){
+				return unit;
+			}
+		}
+		return null;
+	}
+
+	public static List<Unit> FindUnitsInArea(Coord center, int radius){
+		// TODO speed
+		Unit[] units = GameObject.FindObjectsOfType<Unit>();
+		List<Unit> ret = new List<Unit>();
+		foreach (Unit unit in units){
+			if (center.Distance(unit.pos) <= radius){
+				ret.Add(unit);
+			}
+		}
+		return ret;
+	}
 }
