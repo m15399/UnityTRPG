@@ -15,7 +15,11 @@ public class GameStateMove : GameState {
 		game.tileLayer.LayTiles(x, y, speed, ClickableSpace.Type.Move);
 	}
 
-	public override void DoClickMoveSpace(ClickableSpace space){
+	public override void Exit(){
+		Game.Instance().tileLayer.ClearTiles();
+	}
+
+	public override void DoClickTargetSpace(ClickableSpace space){
 		Game game = Game.Instance();
 		Unit unit = game.GetSelectedUnit();
 

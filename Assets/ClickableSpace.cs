@@ -54,18 +54,6 @@ public class ClickableSpace : MonoBehaviour {
 	}
 
 	void DoClick() {
-		switch(type){
-		case Type.Move:
-			Game.Instance().gameState.DoClickMoveSpace(this);
-			break;
-		case Type.Attack:
-			Game.Instance().gameState.DoClickAttackSpace(this);
-			break;
-		case Type.Ability:
-			Game.Instance().gameState.DoClickAbilitySpace(this);
-			break;
-		default:
-			throw new UnityException("ClickableSpace click not handled for type: " + type.ToString());
-		}
+		Game.Instance().gameState.DoClickTargetSpace(this);
 	}
 }

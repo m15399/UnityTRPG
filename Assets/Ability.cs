@@ -2,25 +2,41 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ability : MonoBehaviour {
+public abstract class Ability : MonoBehaviour {
 
-	public string GetName(){
-		return ("Default Ability");
+	public class AbilityInfo {
+		public string name = "(ability)";
+		public string description = "(description)";
+		public bool isAttack = false;                  // Just for target tile colors
+		public bool isTargetted = false;
+		public int range = 1;
+		public int damage = 0;
 	}
 
-	public string GetDescription(){
-		return "(Default\nability\ndescription)";
+	AbilityInfo abilityInfo;
+
+	public Ability(){
+		abilityInfo = new AbilityInfo();
+		InitAbilityInfo(abilityInfo);
 	}
 
-	public void DoCast(){
-		Debug.Log("Casting ability " + GetName() + "!");
+	public AbilityInfo GetInfo(){
+		return abilityInfo;
 	}
 
-	void Start () {
-		
+	protected abstract void InitAbilityInfo(AbilityInfo info);
+
+	////////////////////////////////////////////////////////////////////////////
+
+	// Click cast in the UI
+	//
+	public virtual void DoClickCastButton(){
+		Debug.Log("Casting " + abilityInfo.name + "!");
 	}
-	
-	void Update () {
-		
+
+	// Click target tile
+	//
+	public void DoClickTarget(Coord coord){
+		Debug.Log("Casting " + abilityInfo.name + " at " + coord.ToString() + "!");
 	}
 }

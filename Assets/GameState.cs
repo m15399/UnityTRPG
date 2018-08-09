@@ -24,21 +24,12 @@ public abstract class GameState {
 		DefaultState();
 	}
 
-	public virtual void DoClickMoveSpace(ClickableSpace space){
-		WrongState("DoClickMoveSpace");
-	}
-
-	public virtual void DoClickAttackSpace(ClickableSpace space){
-		WrongState("DoClickAttackSpace");
-	}
-
-	public virtual void DoClickAbilitySpace(ClickableSpace space){
+	public virtual void DoClickTargetSpace(ClickableSpace space){
 		WrongState("DoClickAbilitySpace");
 	}
 
 	public virtual void DoCastAbility(Ability ability){
-		ability.DoCast();
-		DefaultState();
+		Game.Instance().DoClickCastButton(ability);
 	}
 
 

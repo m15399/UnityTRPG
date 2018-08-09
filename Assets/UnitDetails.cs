@@ -58,10 +58,10 @@ public class UnitDetails : MonoBehaviour {
 		Ability[] unitAbilities = unit.GetAbilities();
 
 		foreach(Ability ability in unitAbilities){
-			abilityNames += ability.GetName() + "\n\n";
+			abilityNames += ability.GetInfo().name + "\n\n";
 
-			int numNewLines = ability.GetDescription().Split('\n').Length;
-			abilityDetails += ability.GetDescription();
+			int numNewLines = ability.GetInfo().description.Split('\n').Length;
+			abilityDetails += ability.GetInfo().description;
 			for(int i = numNewLines; i <= 3; i++){
 				abilityDetails += "\n";
 			}

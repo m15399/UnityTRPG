@@ -7,7 +7,6 @@ public class GameStateDefault : GameState {
 	public override void Enter(){
 		Game game = Game.Instance();
 		game.SetSelectedUnit(null);
-		game.tileLayer.ClearTiles();
 	}
 
 	public override void DoClickOnUnit(Unit unit){

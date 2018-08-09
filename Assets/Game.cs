@@ -83,4 +83,15 @@ public class Game : MonoBehaviour {
 		return selectedUnit;
 	}
 
+	public void DoClickCastButton(Ability ability){
+
+		ability.DoClickCastButton();
+
+		if (ability.GetInfo().isTargetted){
+			TransitionGameState(new GameStateCast(ability));
+		} else {
+			TransitionGameState(new GameStateDefault());
+		}
+	}
+
 }
