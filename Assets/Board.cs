@@ -66,8 +66,8 @@ public class Board {
 		}
 
 		Tile newTile = GetTile(c);
-		Assert(newTile != null, "Cannot move entity off the board");
-		Assert(IsEmpty(newTile), "Cannot move entity onto non-empty tile");
+		Utils.Assert(newTile != null, "Cannot move entity off the board");
+		Utils.Assert(IsEmpty(newTile), "Cannot move entity onto non-empty tile");
 		newTile.entity = e;
 	}
 
