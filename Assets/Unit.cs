@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour {
+public class Unit : BoardEntity {
 
 	[System.Serializable]
 	public struct UnitDescription {
@@ -29,7 +29,6 @@ public class Unit : MonoBehaviour {
 		}
 	}
 
-	public Coord pos;
 	public UnitDescription unitDescription;
 	public UnitStats defaultStats;
 	public UnitStats currentStats;
@@ -39,6 +38,11 @@ public class Unit : MonoBehaviour {
 	}
 
 	void Start () {
+		// Determine board pos to the best of our ability
+		//
+		Vector3 tpos = transform.position;
+		pos = new Coord((int) tpos.x, (int) tpos.y);
+
 		currentStats = defaultStats.Clone();
 	}
 	

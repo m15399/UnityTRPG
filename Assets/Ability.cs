@@ -61,7 +61,7 @@ public abstract class Ability : MonoBehaviour {
 		Utils.Assert(coord.Distance(owner.pos) <= abilityInfo.range, "Target was not in range of ability!");
 
 		bool casted = false;
-		Unit unit = Utils.FindUnit(coord);
+		Unit unit = Game.Instance().board.FindUnit(coord);
 
 		// Do some basic checks to save work in child classes.
 		//
@@ -108,7 +108,7 @@ public abstract class Ability : MonoBehaviour {
 		Utils.Assert(radius > 0, "Must specify a radius > 0");
 
 		// TODO don't damage allies
-		List<Unit> units = Utils.FindUnitsInArea(center, radius);
+		List<Unit> units = Game.Instance().board.FindUnitsInArea(center, radius);
 		foreach (Unit unit in units){
 			bool shouldDamage = true;
 

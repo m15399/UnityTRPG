@@ -33,15 +33,9 @@ public class TileLayer {
 
 	public ClickableSpace[] LayTiles(int x, int y, int r, ClickableSpace.Type type){
 
-
-
-		// TODO need some kind of Board - don't lay move tiles on other units
-		// TODO can also take care of TODO speed stuff for UTils.Find* and FindTIle
-
-
-
 		ClearTiles();
 
+		Board board = Game.Instance().board;
 		List<ClickableSpace> createdSpaces = new List<ClickableSpace>();
 
 		// TODO size?
@@ -63,7 +57,29 @@ public class TileLayer {
 
 			foreach(Coord p in q){
 				if (i != 0){
-					results.Add(p);
+
+					bool shouldAdd = false;
+
+					if (type == ClickableSpace.Type.Move){
+						// Can we move to the tile?
+						//
+						bool canMove = false;
+
+						if (board.IsEmpty(p)){
+							canMove = true;
+						}
+
+						shouldAdd = canMove;
+
+					} else {
+						// Can we attack the tile?
+						//
+						shouldAdd = true;
+					}
+
+					if (shouldAdd){
+						results.Add(p);
+					}
 				}
 
 				if (i != r){

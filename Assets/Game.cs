@@ -5,6 +5,7 @@ using UnityEngine;
 public class Game : MonoBehaviour {
 
 	public TileLayer tileLayer;
+	public Board board;
 	public GameState gameState { get; set; }
 
 	GameInput gameInput;
@@ -20,9 +21,15 @@ public class Game : MonoBehaviour {
 		return GameObject.Find("Game").GetComponent<Game>();
 	}
 
-	void Start () {
+	public Game(){
 		gameInput = new GameInput(this);
 		tileLayer = new TileLayer();
+		board = new Board();
+
+		gameState = new GameStateDefault();
+	}
+
+	void Start () {
 
 		mousePointer = GameObject.Find("MousePointer");
 		selectedHighlight = GameObject.Find("SelectedHighlight");
@@ -30,8 +37,6 @@ public class Game : MonoBehaviour {
 		//
 
 		selectedHighlight.SetActive(false);
-
-		gameState = new GameStateDefault();
 
 		// Test code
 
@@ -60,6 +65,8 @@ public class Game : MonoBehaviour {
 		// Debugging
 		//
 		Utils.DebugText("Game state", gameState);
+
+		board.CheckEntityPositions();
 	}
 
 	public void TransitionGameState(GameState newState){
