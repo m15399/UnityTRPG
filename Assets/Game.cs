@@ -101,4 +101,8 @@ public class Game : MonoBehaviour {
 		}
 	}
 
+	public void DoEndTurnPressed(){
+		Debug.Log("End turn pressed");
+	}
+
 }
